@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../shared/student';
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
+
+import {
+  AngularFireDatabase,
+  AngularFireList,
+  AngularFireObject,
+} from '@angular/fire/compat/database';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class CrudService {
   studentsRef: AngularFireList<any>;
   studentRef: AngularFireObject<any>;
-  
-  constructor(private db: AngularFireDatabase) { }
+
+  constructor(private db: AngularFireDatabase) {}
 
   // Create Student
   AddStudent(student: Student) {
@@ -18,8 +23,8 @@ export class CrudService {
       firstName: student.firstName,
       lastName: student.lastName,
       email: student.email,
-      mobileNumber: student.mobileNumber
-    })
+      mobileNumber: student.mobileNumber,
+    });
   }
 
   // Fetch Single Student Object
@@ -32,7 +37,7 @@ export class CrudService {
   GetStudentsList() {
     this.studentsRef = this.db.list('students-list');
     return this.studentsRef;
-  }  
+  }
 
   // Update Student Object
   UpdateStudent(student: Student) {
@@ -40,14 +45,13 @@ export class CrudService {
       firstName: student.firstName,
       lastName: student.lastName,
       email: student.email,
-      mobileNumber: student.mobileNumber
-    })
-  }  
+      mobileNumber: student.mobileNumber,
+    });
+  }
 
   // Delete Student Object
-  DeleteStudent(id: string) { 
-    this.studentRef = this.db.object('students-list/'+id);
+  DeleteStudent(id: string) {
+    this.studentRef = this.db.object('students-list/' + id);
     this.studentRef.remove();
   }
-  
 }

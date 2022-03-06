@@ -6,7 +6,10 @@
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link" routerLink="/register-student">
-        <span class="user-image" style="background-image: url('assets/user.jpg')"></span>
+        <span
+          class="user-image"
+          style="background-image: url('assets/user.jpg')"
+        ></span>
         Hello Admin
       </a>
     </li>
@@ -20,13 +23,21 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/register-student" routerLinkActive="active">
+            <a
+              class="nav-link"
+              routerLink="/register-student"
+              routerLinkActive="active"
+            >
               Add Student
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" routerLink="/view-students" routerLinkActive="active">
+            <a
+              class="nav-link"
+              routerLink="/view-students"
+              routerLinkActive="active"
+            >
               Students List
             </a>
           </li>
@@ -40,6 +51,5 @@
         <router-outlet></router-outlet>
       </div>
     </main>
-
   </div>
 </div>
